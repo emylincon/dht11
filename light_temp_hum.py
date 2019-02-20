@@ -73,7 +73,7 @@ def plot_moving_graph():
 
 def lighting():
     try:
-        if temp[-1] > 25:
+        if [x for x in temp if x != 0][-1] > 25:
             GPIO.setup(18, GPIO.OUT)
             GPIO.output(18, True)
         else:
