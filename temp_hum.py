@@ -75,4 +75,4 @@ def plot_graphs():
     plot_normal_graph()
     plot_moving_graph()
     plt.show()
-
+plot_graphs()
