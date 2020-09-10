@@ -24,7 +24,10 @@ def get_data():
     if result.is_valid():
         print("Temp: %d C" % result.temperature +' '+"Humid: %d %%" % result.humidity)
         payload = {'temperature': result.temperature, 'pressure': result.humidity}
-        send_data(payload)
+        try:
+            send_data(payload)
+        except Exception as e:
+            print('Error', e)
 
 
 if __name__ == '__main__':
