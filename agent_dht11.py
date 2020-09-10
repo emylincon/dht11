@@ -14,7 +14,7 @@ instance = dht11.DHT11(pin=21)
 
 
 def send_data(payload):
-    r = requests.get('http://127.0.0.1:5000/ticker', params=payload)
+    r = requests.get('https://lsbu-sensors.herokuapp.com/send', params=payload)
     data = json.loads(r.content)
     print(data)
 
