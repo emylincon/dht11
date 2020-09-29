@@ -12,9 +12,12 @@ GPIO.setmode(GPIO.BCM)
 # read data using Pin GPIO21
 instance = dht11.DHT11(pin=21)
 
+url = 'http://10.1.2.106/send'
+# 'https://lsbu-sensors.herokuapp.com/send'
+
 
 def send_data(payload):
-    r = requests.get('https://lsbu-sensors.herokuapp.com/send', params=payload)
+    r = requests.get(url, params=payload)
     data = json.loads(r.content.decode("utf-8"))
     print(data)
 
@@ -23,7 +26,7 @@ def get_data():
     result = instance.read()
     if result.is_valid():
         print("Temp: %d C" % result.temperature +' '+"Humid: %d %%" % result.humidity)
-        payload = {'temperature': result.temperature, 'pressure': result.humidity}
+        payload = {'temperature': result.temperature, 'humidity': result.humidity}
         try:
             send_data(payload)
         except Exception as e:
