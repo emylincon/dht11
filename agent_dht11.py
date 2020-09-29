@@ -12,7 +12,7 @@ GPIO.setmode(GPIO.BCM)
 # read data using Pin GPIO21
 instance = dht11.DHT11(pin=21)
 
-url = 'http://10.1.2.106/send'
+url = 'http://10.1.2.106:5000/send'
 # 'https://lsbu-sensors.herokuapp.com/send'
 
 
